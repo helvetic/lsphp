@@ -104,24 +104,24 @@ switch ($day) {
 
 
 $bmw = [
-        'model' => 'X5',
-        'speed' => 120,
-        'doors' => 5,
-        'year' => '2015'
+    'model' => 'X5',
+    'speed' => 120,
+    'doors' => 5,
+    'year' => '2015'
 ];
 
 $toyota = [
-        'model' => 'Prius',
-        'speed' => 180,
-        'doors' => 4,
-        'year' => '2017'
+    'model' => 'Prius',
+    'speed' => 180,
+    'doors' => 4,
+    'year' => '2017'
 ];
 
 $opel = [
-        'model' => 'Astra',
-        'speed' => 150,
-        'doors' => 5,
-        'year' => '2016'
+    'model' => 'Astra',
+    'speed' => 150,
+    'doors' => 5,
+    'year' => '2016'
 ];
 
 $cars = [
