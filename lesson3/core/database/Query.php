@@ -14,14 +14,6 @@ class Query
   
   
   
-  public function selectAll($table)
-  {
-    $sth = $this->pdo->prepare("SELECT * FROM $table");
-    $sth->execute();
-    
-    return $sth->fetchAll(PDO::FETCH_CLASS);
-  }
-  
   public function getId($field, $value)
   {
     $sql = "SELECT id
