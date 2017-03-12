@@ -1,0 +1,17 @@
+{
+    "Llama": {
+        "Class": "Mammalia",
+        "Family": "Camelidae",
+        "Genus": "Lama"
+    },
+    "Alpaca": {
+        "Class": "Mammalia",
+        "Family": "Camelidae",
+        "Genus": "Vicugna"
+    },
+    "Sheep": {
+        "Class": "Mammalia",
+        "Family": "Bovidae",
+        "Genus": "Ovis"
+    }
+}

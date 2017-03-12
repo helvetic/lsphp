@@ -1,0 +1,12 @@
+{
+    "Sheep": {
+        "Class": "Mammalia",
+        "Family": "Bovidae",
+        "Genus": "Ovis"
+    },
+    "Chamaeleo": {
+        "Class": "Reptilia",
+        "Family": "Chamaeleonidae",
+        "Genus": "Chamaeleo"
+    }
+}
