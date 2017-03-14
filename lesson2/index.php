@@ -59,6 +59,10 @@ function calc($array, $operator)
         case '/':
             $result = $array[0];
             for ($i=1; $i<count($array); $i++) {
+                if ($array[$i] == 0) {
+                  $result = 'Деление на ноль не предусмотрено';
+                  break;
+                }
                 $result /= $array[$i];
             }
             break;
@@ -74,6 +78,7 @@ calc(['2e',2,3,4], '+');
 calc([1,2,3,4], '-');
 calc([1,2,3,4], '*');
 calc([2,2,0.25], '/');
+calc([2,4,0,3], '/');
 calc([1,2,3,4], '#');
 
 ?>
@@ -110,6 +115,10 @@ function calcEverything($operator)
         case '/':
             $result = $array[0];
             for ($i=1; $i<count($array); $i++) {
+                if ($array[$i] == 0) {
+                  $result = 'Деление на ноль не предусмотрено';
+                  break;
+                }
                 $result /= $array[$i];
             }
             break;
@@ -131,9 +140,9 @@ calcEverything('*', 2, 2, 3, 8);
 <?php
 function getMultiplyTable($num1, $num2)
 {
-    $checkedArray = array_filter(func_get_args(), "is_numeric");
+    $checkedArray = array_filter(func_get_args(), "is_int");
     if (count(func_get_args()) !== count($checkedArray)) {
-        echo 'Аргументы должны быть числами', '<br>';
+        echo 'Аргументы должны быть целыми числами', '<br>';
         return;
     }
     
@@ -152,6 +161,7 @@ function getMultiplyTable($num1, $num2)
 
 getMultiplyTable('d', 4);
 getMultiplyTable(3, 4);
+getMultiplyTable(3.14, 4);
 
 ?>
 
