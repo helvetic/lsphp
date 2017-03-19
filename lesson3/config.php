@@ -8,5 +8,8 @@ return [
       'user' => 'root',
       'pass' => '',
       'params' => ';$charset=utf8'
-    ]
+    ],
+  'site' => [
+      'folder' => '/lesson3/'
+  ]
 ];
