@@ -27,7 +27,7 @@ if ($_POST) {
     setcookie("id", $id );
     
   
-    redirectTo('profile');
+    Request::redirectTo('profile');
     
   } catch (Exception $e) {
     echo $e->getMessage();

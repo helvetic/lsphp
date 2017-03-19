@@ -1,7 +1,7 @@
 <?php
 
 if (!$app['auth']) {
-  redirectTo('');
+  Request::redirectTo('');
 }
 
 checkPermissions($app['auth']);

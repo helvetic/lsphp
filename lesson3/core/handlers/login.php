@@ -27,7 +27,7 @@ if ($_POST) {
     $app['query']->addSession($data['id'], session_id());
     setcookie("id", $data['id'] );
     
-    redirectTo('profile');
+    Request::redirectTo('profile');
     
   } catch (Exception $e) {
     echo $e->getMessage();

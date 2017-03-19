@@ -9,7 +9,7 @@ if ($_POST) {
       $photo = $app['query']->getField('photo', $_POST['id']);
       unlink($app['root'] . $app['imagepath'] . $photo);
       $app['query']->deleteUser($_POST['id']);
-      redirectTo('users');
+      Request::redirectTo('users');
     } else {
       throw new Exception('Invalid query');
     }
