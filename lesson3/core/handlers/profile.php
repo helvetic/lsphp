@@ -3,19 +3,41 @@
 if ($_POST) {
   $data = [];
   
+  $input = clearArray($_POST, [
+      'name' => 'string',
+      'age' => 'int',
+      'about' => 'string',
+  ]);
+  
+  
   // Не придумал ничего умнее
   if ($app['user']['photo']) {
     $photo = $app['user']['photo'];
   }
   
-  $app['user'] = $_POST;
+  $app['user'] = array_replace_recursive($app['user'], $input);
   
   if (!$app['user']['photo']) {
     $app['user']['photo'] = $photo;
   }
   
+  
+  
   try {
   
+    if(isset($_POST['age'])) {
+      if (is_null($input['age'])) {
+        throw new Exception('Age must be a number');
+      }
+      if ($input['age'] == 0) {
+        throw new Exception('Age must be more then 0');
+      }
+      if ($input['age'] > 999) {
+        throw new Exception('Sorry! You are way too old.');
+      }
+    }
+
+    
     if ($_FILES['photo']['size'] != 0) {
       
       $file = $_FILES['photo'];
