@@ -31,8 +31,9 @@ require_once 'core/Request.php';
 $app['routes'] = require_once 'routes.php';
 
 try {
-  if (isset($app['routes'][Request::getUri()])) {
-    require_once $app['routes'][Request::getUri()];
+  $folder = $app['config']['site']['folder'];
+  if (isset($app['routes'][Request::getUri($folder)])) {
+    require_once $app['routes'][Request::getUri($folder)];
   } else {
     throw new Exception('Page not found');
   }

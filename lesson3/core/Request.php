@@ -3,9 +3,9 @@
 
 class Request
 {
-  public static function getUri()
+  public static function getUri($folder = '/')
   {
-    $uri = trim(substr($_SERVER['REQUEST_URI'], 8), '/');
+    $uri = str_replace($folder, '', $_SERVER['REQUEST_URI']);
     return $uri;
   }
   
