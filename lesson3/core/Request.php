@@ -3,7 +3,7 @@
 
 class Request
 {
-  public static function uri()
+  public static function getUri()
   {
     $uri = trim(substr($_SERVER['REQUEST_URI'], 8), '/');
     return $uri;
