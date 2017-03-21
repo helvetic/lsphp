@@ -6,10 +6,9 @@ abstract class Car
   use Transmission;
   
   protected $carName = 'Unknown';
-  public $speed;
   protected $horsepower;
   private $distance;
-  protected $temp;
+  private $temp;
   
   public function __construct()
   {
