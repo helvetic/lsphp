@@ -25,6 +25,7 @@ $title = 'Пользователи';
         <th>Login</th>
         <th>Name</th>
         <th>Age</th>
+        <th>Adulthood</th>
         <th>About</th>
         <th></th>
       </tr>
@@ -36,11 +37,11 @@ $title = 'Пользователи';
             <?php if ($user['photo']) {
               echo "<img src='{$app['fullimagepath']}{$user['photo']}' style='max-width:50px;max-height:50px'>";
             }  ?>
-
           </td>
           <td><?=$user['login']?></td>
           <td><?=$user['name']?></td>
           <td><?=$user['age']?></td>
+          <td><?=$user['adult']?></td>
           <td><?=nl2br($user['about'])?></td>
           <td>
             <form action="" method="post">
