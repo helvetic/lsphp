@@ -25,7 +25,7 @@ if ($_POST) {
   
   try {
   
-    if(isset($_POST['age'])) {
+    if($_POST['age']) {
       if (is_null($input['age'])) {
         throw new Exception('Age must be a number');
       }

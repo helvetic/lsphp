@@ -11,9 +11,17 @@ if ($_POST) {
     
     if($_POST['id']) {
       $photo = $app['query']->getField('photo', $input['id']);
-      unlink($app['root'] . $app['imagepath'] . $photo);
+      $photoPath = $app['root'] . $app['imagepath'] . $photo;
+      if ($photo) {
+        unlink($photoPath);
+      }
       $app['query']->deleteUser($input['id']);
-      Request::redirectTo('users');
+  
+      if ($input['id'] == $app['id']) {
+        Request::redirectTo('exit');
+      } else {
+        Request::redirectTo('users');
+      }
     } else {
       throw new Exception('Invalid query');
     }
