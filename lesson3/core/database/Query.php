@@ -149,10 +149,11 @@ class Query
     $sth->execute();
   }
   
-  public function getUsers()
+  public function getUsers($order = 'id')
   {
     $sql = "SELECT id, login, name, age, about, photo
       FROM Users
+      ORDER BY $order
     ";
     $sth = $this->pdo->prepare($sql);
     $sth->execute();
