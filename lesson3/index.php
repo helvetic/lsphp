@@ -5,10 +5,14 @@ if (!session_id()) {
 }
 
 // app start
+$folder = str_replace('index.php', '',$_SERVER['SCRIPT_NAME']);
+$url = $_SERVER['HTTP_HOST'] . $folder;
+$domain = "//{$url}";
+
 $app = [];
 $app['root'] = __DIR__;
 $app['imagepath'] = '/img/uploads/';
-$app['fullimagepath'] = '/lesson3/img/uploads/';
+$app['fullimagepath'] = "{$domain}img/uploads/";
 $app['config'] = require 'config.php';
 
 require_once 'core/helpers.php';
