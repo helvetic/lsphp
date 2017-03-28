@@ -1,0 +1,12 @@
+{
+    "name": "maggi/lsphp",
+    "require": {
+        "phpmailer/phpmailer": "^5.2"
+    },
+    "authors": [
+        {
+            "name": "helvetic",
+            "email": "my@maggit.ru"
+        }
+    ]
+}
