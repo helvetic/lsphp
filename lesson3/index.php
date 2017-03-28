@@ -15,6 +15,7 @@ $app['imagepath'] = '/img/uploads/';
 $app['fullimagepath'] = "{$domain}img/uploads/";
 $app['config'] = require 'config.php';
 
+require_once $app['root'] . '/vendor/autoload.php';
 require_once 'core/helpers.php';
 require_once 'core/database/Connection.php';
 require_once 'core/database/Query.php';

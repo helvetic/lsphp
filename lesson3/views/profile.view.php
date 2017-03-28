@@ -26,6 +26,7 @@ $title = 'Профиль';
   <hr>
   <form action="" method="post" enctype="multipart/form-data">
     <fieldset>
+      <input type="email" name="email" placeholder="E-mail"  value="<?=$app['user']['email']?>">
       <input type="text" name="name" placeholder="Имя" value="<?=$app['user']['name']?>">
       <input type="text" name="age" placeholder="Возраст" value="<?=$app['user']['age']?>">
       <textarea name="about" id="" cols="30" rows="10" placeholder="О себе" ><?=$app['user']['about']?></textarea>

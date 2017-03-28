@@ -43,6 +43,9 @@ function clearData($data, $method)
         return (int) $filtered;
       }
       break;
+    case 'email':
+      return (string) filter_var($data, FILTER_VALIDATE_EMAIL);
+      break;
     default:
       return $data;
       break;

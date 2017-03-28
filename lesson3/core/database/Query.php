@@ -71,11 +71,12 @@ class Query
   
   public function addUser($user)
   {
-    $sql = "INSERT INTO Users (login, password, salt)
+    $sql = "INSERT INTO Users (login, password, salt, email)
       VALUES(
         '{$user['login']}',
         '{$user['password']}',
-        '{$user['salt']}'
+        '{$user['salt']}',
+        '{$user['email']}'
       )
     ";
     $sth = $this->pdo->prepare($sql);
@@ -125,7 +126,7 @@ class Query
   
   public function getUserData($id)
   {
-    $sql = "SELECT login, name, age, about, photo
+    $sql = "SELECT login, name, age, about, photo, email
       FROM Users
       WHERE id = $id
     ";

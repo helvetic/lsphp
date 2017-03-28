@@ -21,6 +21,7 @@ $title = 'Регистрация';
   <form action="" method="post">
     <fieldset>
       <input type="text" name="login" placeholder="Логин"  value="<?=$_POST['login']?>">
+      <input type="text" name="email" placeholder="E-mail"  value="<?=$_POST['email']?>">
       <input type="password" name="password" placeholder="Пароль">
       <hr>
       <button type="submit">Отправить</button>
