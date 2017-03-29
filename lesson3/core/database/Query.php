@@ -143,6 +143,7 @@ class Query
         name = '{$data['name']}',
         age = '{$data['age']}',
         about = '{$data['about']}',
+        email = '{$data['email']}',
         photo = '{$data['photo']}'
       WHERE id = $id;
     ";

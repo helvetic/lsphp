@@ -5,6 +5,7 @@ if ($_POST) {
   
   $input = clearArray($_POST, [
       'name' => 'string',
+      'email' => 'email',
       'age' => 'int',
       'about' => 'string',
   ]);
@@ -34,6 +35,14 @@ if ($_POST) {
       }
       if ($input['age'] > 999) {
         throw new Exception('Sorry! You are way too old.');
+      }
+    }
+  
+    if ($_POST['email']) {
+      if ($input['email']) {
+        $data['email'] = $input['email'];
+      } else {
+        throw new Exception('Wrong email address');
       }
     }
 
