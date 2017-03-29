@@ -16,6 +16,7 @@ $template = $twig->load('profile.twig');
 echo $template->render([
     'post' => $_POST,
     'menu' => $menu->authList,
+    'uri' => $menu->uri,
     'title' => 'Профиль',
     'h1' => 'Профиль',
     'user' => $app['user'],

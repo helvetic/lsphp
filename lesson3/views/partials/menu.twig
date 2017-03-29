@@ -1,5 +1,6 @@
 <nav>
   {% for item in menu %}
-    <a href='{{ item.link }}' class='button'>{{ item.title }}</a>
+
+    <a href='{{ item.link }}' class='button{{uri == item.link ? " button-outline" : ""}}'>{{ item.title }}</a>
   {% endfor %}
 </nav>

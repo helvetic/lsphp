@@ -23,6 +23,7 @@ $menu = new Menu();
 $template = $twig->load('users.twig');
 echo $template->render([
     'menu' => $menu->authList,
+    'uri' => $menu->uri,
     'title' => 'Пользователи',
     'h1' => 'Список пользователей',
     'users' => $users,

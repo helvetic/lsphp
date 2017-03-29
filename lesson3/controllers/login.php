@@ -13,6 +13,7 @@ $template = $twig->load('login.twig');
 echo $template->render([
     'post' => $_POST,
     'menu' => $menu->list,
+    'uri' => $menu->uri,
     'title' => 'Авторизация',
     'h1' => 'Авторизация',
 ]);

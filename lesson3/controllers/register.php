@@ -16,6 +16,7 @@ $template = $twig->load('register.twig');
 echo $template->render([
     'post' => $_POST,
     'menu' => $menu->list,
+    'uri' => $menu->uri,
     'title' => 'Регистрация',
     'h1' => 'Регистрация'
 ]);
