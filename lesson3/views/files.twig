@@ -1,0 +1,31 @@
+{% extends 'base/base.twig' %}
+
+{% block content %}
+  <table>
+    <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Src</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>
+            {% if user.photo %}
+                <img src='{{ imgpath }}{{ user.photo }}' style='max-width:50px;max-height:50px'>
+            {% endif %}
+          </td>
+          <td>{{ user.photo }}</td>
+          <td>
+            <form action="" method="post">
+              <input type="hidden" name="id" value="{{ user.id }}">
+              <button>X</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

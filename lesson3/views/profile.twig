@@ -1,0 +1,21 @@
+{% extends 'base/base.twig' %}
+
+{% block content %}
+  {% if user.photo %}
+    <img src='{{ imgpath }}{{ user.photo }}' style='max-width:100px;max-height:100px'>
+  {% endif %}
+
+  <hr>
+  <form action="" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <input type="email" name="email" placeholder="E-mail"  value="{{ user.email }}">
+      <input type="text" name="name" placeholder="Имя" value="{{ user.name }}">
+      <input type="text" name="age" placeholder="Возраст" value="{{ user.age }}">
+      <textarea name="about" id="" cols="30" rows="10" placeholder="О себе" >{{ user.about }}</textarea>
+      <label for="input_photo">Загрузите свою фотографию</label>
+      <input type="file" name="photo" id="input_photo" accept="image/*">
+      <hr>
+      <button type="submit">Отправить</button>
+    </fieldset>
+  </form>
+{% endblock %}

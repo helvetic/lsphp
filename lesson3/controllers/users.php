@@ -16,4 +16,15 @@ $users = array_map(function ($user) {
 
 
 require_once 'core/handlers/users.php';
-require_once 'views/users.view.php';
+require_once 'core/Menu.php';
+
+$menu = new Menu();
+
+$template = $twig->load('users.twig');
+echo $template->render([
+    'menu' => $menu->authList,
+    'title' => 'Пользователи',
+    'h1' => 'Список пользователей',
+    'users' => $users,
+    'imgpath' => $app['fullimagepath']
+]);

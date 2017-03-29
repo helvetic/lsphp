@@ -33,6 +33,15 @@ if ($_COOKIE['id']) {
   $app['user'] = $app['query']->getUserData($app['id']);
 }
 
+
+//twig
+$loader = new Twig_Loader_Filesystem('views/');
+$twig = new Twig_Environment($loader, [
+    'debug' => true
+//    'cache' => '/cache/'
+]);
+$twig->addExtension(new Twig_Extension_Debug());
+
 require_once 'core/Request.php';
 $app['routes'] = require_once 'routes.php';
 

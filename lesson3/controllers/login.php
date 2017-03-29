@@ -5,5 +5,15 @@ if ($app['auth']) {
 }
 
 require_once 'core/handlers/login.php';
-require_once 'views/login.view.php';
+require_once 'core/Menu.php';
+
+$menu = new Menu();
+
+$template = $twig->load('login.twig');
+echo $template->render([
+    'post' => $_POST,
+    'menu' => $menu->list,
+    'title' => 'Авторизация',
+    'h1' => 'Авторизация',
+]);
 

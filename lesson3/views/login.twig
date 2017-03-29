@@ -1,0 +1,17 @@
+{% extends 'base/base.twig' %}
+
+{% block headscripts %}
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
+{% block content %}
+  <form action="" method="post">
+    <fieldset>
+      <input type="text" name="login" placeholder="Логин"  value="{{ post.login }}">
+      <input type="password" name="password" placeholder="Пароль">
+      <div class="g-recaptcha" data-sitekey="6LfgoRoUAAAAAL5h5Pd4bZlsfllELmZZ1s4zRbAK"></div>
+      <hr>
+      <button type="submit">Отправить</button>
+    </fieldset>
+  </form>
+{% endblock %}

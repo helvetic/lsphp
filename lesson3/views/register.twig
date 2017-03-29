@@ -1,0 +1,13 @@
+{% extends 'base/base.twig' %}
+
+{% block content %}
+<form action="" method="post">
+    <fieldset>
+        <input type="text" name="login" placeholder="Логин"  value="{{ post.login }}">
+        <input type="text" name="email" placeholder="E-mail"  value="{{ post.email }}">
+        <input type="password" name="password" placeholder="Пароль">
+        <hr>
+        <button type="submit">Отправить</button>
+    </fieldset>
+</form>
+{% endblock %}
