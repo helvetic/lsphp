@@ -13,5 +13,7 @@
   
   <!-- Milligram CSS minified -->
   <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
-
+  
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  
 </head>

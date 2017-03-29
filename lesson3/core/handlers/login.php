@@ -1,5 +1,6 @@
 <?php
 
+
 if ($_POST) {
   $data = [];
   
@@ -27,6 +28,13 @@ if ($_POST) {
       }
     } else {
       throw new Exception('No password');
+    }
+  
+  
+    $captcha = new ReCaptcha();
+    
+    if (!$captcha->check($_POST['g-recaptcha-response'])) {
+      throw new Exception('Captcha check failed');
     }
   
     $app['query']->addSession($data['id'], session_id());

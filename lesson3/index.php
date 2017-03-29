@@ -17,12 +17,13 @@ $app['config'] = require 'config.php';
 
 require_once $app['root'] . '/vendor/autoload.php';
 require_once 'core/helpers.php';
+require_once 'core/ReCaptcha.php';
 require_once 'core/database/Connection.php';
 require_once 'core/database/Query.php';
 
 
 // connect database
-// prepare pdo instanse
+// prepare pdo instance
 $app['query'] = new Query(Connection::make($app['config']['db']));
 
 

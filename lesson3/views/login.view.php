@@ -23,6 +23,7 @@ $title = 'Авторизация';
     <fieldset>
       <input type="text" name="login" placeholder="Логин"  value="<?=$_POST['login']?>">
       <input type="password" name="password" placeholder="Пароль">
+      <div class="g-recaptcha" data-sitekey="6LfgoRoUAAAAAL5h5Pd4bZlsfllELmZZ1s4zRbAK"></div>
       <hr>
       <button type="submit">Отправить</button>
     </fieldset>

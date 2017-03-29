@@ -10,6 +10,7 @@ return [
       'params' => ';$charset=utf8'
     ],
   'site' => [
-      'folder' => '/lesson3/'
+      'folder' => '/lesson3/',
+      'gsecret' => '6LfgoRoUAAAAAME3LtIyHLULJXWw3Xpo-QwY0Ju5'
   ]
 ];
