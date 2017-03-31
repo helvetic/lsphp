@@ -4,11 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Session extends Model
 {
-  protected $table = 'Sessions';
   public $timestamps = false;
-  
-  protected $guarded = ['id'];
-  protected $primaryKey = "id";
   
   public static function check($id, $sessid)
   {
