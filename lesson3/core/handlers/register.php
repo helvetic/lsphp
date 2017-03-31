@@ -10,7 +10,7 @@ if ($_POST) {
   ]);
   
   try {
-    if ($app['query']->checkLogin($input['login'])) {
+    if (User::checkLogin($input['login'])) {
       throw new Exception('Login already in use');
     }
     
@@ -36,10 +36,9 @@ if ($_POST) {
     } else {
       throw new Exception('No password');
     }
-    
-    $id = $app['query']->addUser($data);
-    $app['query']->addSession($id, session_id());
-    
+
+    $id = User::add($data);
+    Session::add($id, session_id());
     setcookie("id", $id );
   
     new MailTo([

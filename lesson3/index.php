@@ -19,18 +19,22 @@ require_once $app['root'] . '/vendor/autoload.php';
 require_once 'core/helpers.php';
 require_once 'core/ReCaptcha.php';
 require_once 'core/database/Connection.php';
-require_once 'core/database/Query.php';
+require_once 'core/database/Session.php';
+require_once 'core/database/User.php';
+//require_once 'core/database/DB.php';
 
 
 // connect database
 // prepare pdo instance
-$app['query'] = new Query(Connection::make($app['config']['db']));
+Connection::make($app['config']['db']);
 
-
+//var_dump(User::find(1));
+//Query::checkSession(1, session_id());
+//Session::check($app['id'], session_id());
 if ($_COOKIE['id']) {
   $app['id'] = $_COOKIE['id'];
-  $app['auth'] = $app['query']->checkSession($app['id'], session_id());
-  $app['user'] = $app['query']->getUserData($app['id']);
+  $app['auth'] = Session::check($app['id'], session_id());
+  $app['user'] = User::find($app['id']);
 }
 
 

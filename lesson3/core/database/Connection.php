@@ -1,14 +1,21 @@
 <?php
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+
 class Connection
 {
   public static function make($db)
   {
-    $dsn = "{$db['type']}:host={$db['host']};dbname={$db['name']}{$db['params']}";
+    $capsule = new Capsule;
     
     try {
-      return new PDO($dsn, $db['user'], $db['pass']);
+      $capsule->addConnection($db);
     } catch (PDOException $e) {
       die('Подключение не удалось: ' . $e->getMessage());
     }
+  
+    $capsule->setAsGlobal();
+  
+    $capsule->bootEloquent();
   }
 }

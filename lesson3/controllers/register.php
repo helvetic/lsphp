@@ -20,5 +20,4 @@ echo $template->render([
     'title' => 'Регистрация',
     'h1' => 'Регистрация'
 ]);
-//require_once 'views/register.view.php';
 

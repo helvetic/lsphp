@@ -10,16 +10,17 @@ if ($_POST) {
       'about' => 'string',
   ]);
   
+  $user = $app['user']->toArray();
   
   // Не придумал ничего умнее
-  if ($app['user']['photo']) {
-    $photo = $app['user']['photo'];
+  if ($user['photo']) {
+    $photo = $user['photo'];
   }
   
-  $app['user'] = array_replace_recursive($app['user'], $input);
+  $user = array_replace_recursive($user, $input);
   
-  if (!$app['user']['photo']) {
-    $app['user']['photo'] = $photo;
+  if (!$user['photo']) {
+    $user['photo'] = $photo;
   }
   
   
@@ -55,7 +56,7 @@ if ($_POST) {
       
       if(exif_imagetype($file['tmp_name'])) {
         if (move_uploaded_file($file['tmp_name'], $uploadfile)) {
-          $app['user']['photo'] = $filename;
+          $user['photo'] = $filename;
           echo 'Image was uploaded', '<br>';
         } else {
           throw new Exception('Can\'t upload image');
@@ -65,7 +66,7 @@ if ($_POST) {
       }
     }
     
-    $app['query']->setUserData($app['id'], $app['user']);
+    User::updateData($app['id'], $user);
     
     echo 'Profile updated', '<br>';
     

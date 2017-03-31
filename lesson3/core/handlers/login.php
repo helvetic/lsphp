@@ -12,9 +12,10 @@ if ($_POST) {
   try {
     
     if($_POST['login']) {
-      if ($app['query']->checkLogin($input['login'])) {
+      $user = User::checkLogin($input['login']);
+      if ($user !== NULL) {
         $data['login'] = $input['login'];
-        $data['id'] = $app['query']->getId('login', $data['login']);
+        $data['id'] = $user->id;
       } else {
         throw new Exception('Login not found');
       }
@@ -23,7 +24,7 @@ if ($_POST) {
     }
     
     if($_POST['password']) {
-      if (!$app['query']->checkPass('login', $data['login'], $input['password'])) {
+      if (!User::checkPass('login', $data['login'], $input['password'])) {
         throw new Exception('Wrong password');
       }
     } else {
@@ -37,7 +38,7 @@ if ($_POST) {
       throw new Exception('Captcha check failed');
     }
   
-    $app['query']->addSession($data['id'], session_id());
+    Session::add($data['id'], session_id());
     setcookie("id", $data['id'] );
     
     Request::redirectTo('profile');

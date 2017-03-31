@@ -10,9 +10,9 @@ if ($_POST) {
   try {
     
     if($_POST['id']) {
-      $photo = $app['query']->getField('photo', $input['id']);
+      $photo =  User::returnPhoto($input['id']);
       unlink($app['root'] . $app['imagepath'] . $photo);
-      $app['query']->deletePhoto($input['id']);
+      User::deletePhoto($input['id']);
       Request::redirectTo('files');
     } else {
       throw new Exception('Invalid query');

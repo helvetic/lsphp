@@ -6,14 +6,11 @@ if (!$app['auth']) {
 
 checkPermissions($app['auth']);
 
-$users = $app['query']->getUsers('age');
+$users = User::getOrderedBy('age');
 
-$users = array_map(function ($user) {
-  $user['adult'] = ($user['age'] >= 18) ? 'Совершеннолетний' : 'Несовершеннолетний';
-  return $user;
-},$users);
-
-
+foreach ($users as $user) {
+  $user->adult = ($user->age >= 18) ? 'Совершеннолетний' : 'Несовершеннолетний';
+}
 
 require_once 'core/handlers/users.php';
 require_once 'core/Menu.php';

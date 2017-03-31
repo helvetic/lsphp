@@ -2,12 +2,14 @@
 
 return [
   'db' => [
-      'type' => 'mysql',
+      'driver' => 'mysql',
       'host' => 'localhost',
-      'name' => 'lsphp3',
-      'user' => 'root',
-      'pass' => '',
-      'params' => ';$charset=utf8'
+      'database' => 'lsphp3',
+      'username' => 'root',
+      'password' => '',
+      'charset'   => 'utf8',
+      'collation' => 'utf8_unicode_ci',
+      'prefix'    => '',
     ],
   'site' => [
       'folder' => '/lesson3/',

@@ -1,7 +1,7 @@
 <?php
 
 session_unset();
-$app['query']->deleteSession($app['id']);
+Session::deleteCurrent($app['id']);
 unset($_COOKIE['id']);
 
 Request::redirectTo('');

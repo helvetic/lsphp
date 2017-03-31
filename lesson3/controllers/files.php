@@ -6,7 +6,7 @@ if (!$app['auth']) {
 
 checkPermissions($app['auth']);
 
-$users = $app['query']->getPhotos();
+$users = User::getWithPhotos();
 
 require_once 'core/handlers/files.php';
 require_once 'core/Menu.php';

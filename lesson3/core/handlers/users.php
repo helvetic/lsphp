@@ -10,12 +10,12 @@ if ($_POST) {
   try {
     
     if($_POST['id']) {
-      $photo = $app['query']->getField('photo', $input['id']);
+      $photo = User::returnPhoto($input['id']);
       $photoPath = $app['root'] . $app['imagepath'] . $photo;
       if ($photo) {
         unlink($photoPath);
       }
-      $app['query']->deleteUser($input['id']);
+      User::where('id', $input['id'])->delete();
   
       if ($input['id'] == $app['id']) {
         Request::redirectTo('exit');
