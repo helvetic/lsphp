@@ -57,7 +57,7 @@ class User extends Model
         ->update(['photo' => NULL]);
   }
   
-  public static function updateData($id,$data)
+  public static function updateData($id, $data)
   {
     User::where('id', $id)
       ->update($data);

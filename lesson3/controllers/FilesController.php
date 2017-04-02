@@ -1,5 +1,25 @@
 <?php
 
+class FilesController extends Controller
+{
+  
+  function __construct()
+  {
+    parent::__construct();
+  
+    $this->handle();
+  
+    
+    $this->data->users = User::getOrderedBy('age');
+    $this->data->menu = Menu::authList();
+    
+    $this->view->render($this->data);
+
+  }
+  
+}
+
+/*
 if (!$app['auth']) {
   Request::redirectTo('');
 }
@@ -22,3 +42,5 @@ echo $template->render([
     'users' => $users,
     'imgpath' => $app['fullimagepath']
 ]);
+
+*/

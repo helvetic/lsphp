@@ -1,5 +1,20 @@
 <?php
 
+class RegisterController extends Controller
+{
+  function __construct()
+  {
+    parent::__construct();
+  
+    $this->handle();
+  
+    $this->view->render($this->data);
+  }
+
+}
+
+/*
+
 if ($app['auth']) {
   Request::redirectTo('profile');
 }
@@ -21,3 +36,5 @@ echo $template->render([
     'h1' => 'Регистрация'
 ]);
 
+
+*/

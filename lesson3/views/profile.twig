@@ -1,6 +1,10 @@
 {% extends 'base/base.twig' %}
 
 {% block content %}
+  <div>
+    {{ content  | raw }}
+  </div>
+
   {% if user.photo %}
     <img src='{{ imgpath }}{{ user.photo }}' style='max-width:100px;max-height:100px'>
   {% endif %}

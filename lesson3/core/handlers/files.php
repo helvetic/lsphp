@@ -2,6 +2,7 @@
 
 
 if ($_POST) {
+  global $config;
   
   $input = clearArray($_POST, [
       'id' => 'int',
@@ -11,9 +12,9 @@ if ($_POST) {
     
     if($_POST['id']) {
       $photo =  User::returnPhoto($input['id']);
-      unlink($app['root'] . $app['imagepath'] . $photo);
+      unlink($config->root . $config->imagepath . $photo);
       User::deletePhoto($input['id']);
-      Request::redirectTo('files');
+      Route::redirectTo('files');
     } else {
       throw new Exception('Invalid query');
     }

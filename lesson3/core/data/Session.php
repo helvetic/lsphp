@@ -29,7 +29,7 @@ class Session extends Model
   
   public static function deleteCurrent($id)
   {
-    Session::find($id)->delete();
+    Session::destroy($id);
   }
   
   

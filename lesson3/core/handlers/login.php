@@ -41,7 +41,7 @@ if ($_POST) {
     Session::add($data['id'], session_id());
     setcookie("id", $data['id'] );
     
-    Request::redirectTo('profile');
+    Route::redirectTo('profile');
     
   } catch (Exception $e) {
     echo $e->getMessage();

@@ -16,7 +16,7 @@
     </div>
 
     <hr>
-    <h1>{{ h1 }}</h1>
+    <h1>{% block h1 %}{{ h1 }}{% endblock %}</h1>
     <hr>
 
     {% block content %}{% endblock %}

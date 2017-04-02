@@ -1,5 +1,20 @@
 <?php
 
+class LoginController extends Controller
+{
+  
+  function __construct()
+  {
+    parent::__construct();
+    
+    $this->handle();
+  
+    $this->view->render($this->data);
+  }
+
+}
+
+/*
 if ($app['auth']) {
   Request::redirectTo('profile');
 }
@@ -17,4 +32,4 @@ echo $template->render([
     'title' => 'Авторизация',
     'h1' => 'Авторизация',
 ]);
-
+*/

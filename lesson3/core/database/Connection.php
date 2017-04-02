@@ -7,12 +7,13 @@ class Connection
   public static function make($db)
   {
     $capsule = new Capsule;
+  
+    $capsule->addConnection((array) $db);
     
-    try {
-      $capsule->addConnection($db);
-    } catch (PDOException $e) {
-      die('Подключение не удалось: ' . $e->getMessage());
-    }
+//    try {
+//    } catch (PDOException $e) {
+//      die('Подключение не удалось: ' . $e->getMessage());
+//    }
   
     $capsule->setAsGlobal();
   

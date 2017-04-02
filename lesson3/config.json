@@ -1,0 +1,15 @@
+{
+  "db" : {
+    "driver": "mysql",
+    "host": "localhost",
+    "database": "lsphp3",
+    "username": "root",
+    "password": "",
+    "charset": "utf8",
+    "collation": "utf8_unicode_ci",
+    "prefix": ""
+  },
+  "folder": "/lesson3/",
+  "imagepath": "/img/uploads/",
+  "gsecret": "6LfgoRoUAAAAAME3LtIyHLULJXWw3Xpo-QwY0Ju5"
+}

@@ -1,6 +1,7 @@
 <?php
-
 if ($_POST) {
+  global $config;
+  
   $data = [];
   
   $input = clearArray($_POST, [
@@ -10,7 +11,7 @@ if ($_POST) {
       'about' => 'string',
   ]);
   
-  $user = $app['user']->toArray();
+  $user = App::user()->toArray();
   
   // Не придумал ничего умнее
   if ($user['photo']) {
@@ -19,7 +20,7 @@ if ($_POST) {
   
   $user = array_replace_recursive($user, $input);
   
-  if (!$user['photo']) {
+  if (!$user['photo'] && $photo) {
     $user['photo'] = $photo;
   }
   
@@ -52,7 +53,7 @@ if ($_POST) {
       
       $file = $_FILES['photo'];
       $filename = basename($file['name']);
-      $uploadfile = $app['root'] . $app['imagepath'] . $filename;
+      $uploadfile = $config->root . $config->imagepath . $filename;
       
       if(exif_imagetype($file['tmp_name'])) {
         if (move_uploaded_file($file['tmp_name'], $uploadfile)) {
@@ -66,7 +67,8 @@ if ($_POST) {
       }
     }
     
-    User::updateData($app['id'], $user);
+    User::updateData(App::id(), $user);
+    App::$user = $user;
     
     echo 'Profile updated', '<br>';
     

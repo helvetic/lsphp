@@ -48,7 +48,7 @@ if ($_POST) {
                    <p>Your password: {$input['password']}</p>"
     ]);
   
-    Request::redirectTo('profile');
+    Route::redirectTo('profile');
     
   } catch (Exception $e) {
     echo $e->getMessage();

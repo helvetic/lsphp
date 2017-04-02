@@ -1,6 +1,7 @@
 <nav>
   {% for item in menu %}
 
-    <a href='{{ item.link }}' class='button{{uri == item.link ? " button-outline" : ""}}'>{{ item.title }}</a>
+    <a href='{{ folder }}{{ item.uri }}' class='button{{uri == item.uri ? " button-outline" : ""}}'>{{ item.title }}</a>
   {% endfor %}
+
 </nav>

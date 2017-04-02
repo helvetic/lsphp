@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+  <div>
+    {{ content  | raw }}
+  </div>
   <form action="" method="post">
     <fieldset>
       <input type="text" name="login" placeholder="Логин"  value="{{ post.login }}">

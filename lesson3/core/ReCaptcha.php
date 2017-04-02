@@ -6,8 +6,8 @@ class ReCaptcha
   
   public function __construct()
   {
-    global $app;
-    $this->secret = $app['config']['site']['gsecret'];
+    global $config;
+    $this->secret = $config->gsecret;
   }
   
   public function check($response)

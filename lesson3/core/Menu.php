@@ -3,47 +3,21 @@
 
 class Menu
 {
-  public $uri;
-  public $list;
-  public $authList;
   
-  function __construct()
+  public static function list()
   {
-    $this->uri = $_SERVER['REQUEST_URI'];
-  
-    $this->list = [
-        [
-            'title' => 'Регистрация',
-            'link' => '/lesson3/'
-        ],
-        [
-            'title' => 'Авторизация',
-            'link' => '/lesson3/login'
-        ]
-    ];
-    
-    $this->authList = [
-        [
-            'title' => 'Профиль',
-            'link' => '/lesson3/profile',
-            'auth' => true
-        ],
-        [
-            'title' => 'Пользователи',
-            'link' => '/lesson3/users',
-            'auth' => true
-        ],
-        [
-            'title' => 'Фотографии',
-            'link' => '/lesson3/files',
-            'auth' => true
-        ],
-        [
-            'title' => 'Выход',
-            'link' => '/lesson3/exit',
-            'auth' => true
-        ],
-    ];
-
+    return Page::where('protected', 0)->get();
   }
+  
+  public static function authList()
+  {
+    $menu = Page::select('uri', 'title')->where('protected', 1)->get();
+//    var_dump($menu);
+//    $exit = new stdClass();
+//    $exit->uri = 'exit';
+//    array_push($menu->items, $exit);
+    // TODO add exit
+    return $menu;
+  }
+  
 }
