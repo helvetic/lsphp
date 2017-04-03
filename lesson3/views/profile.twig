@@ -5,23 +5,52 @@
     {{ content  | raw }}
   </div>
 
-  {% if user.photo %}
-    <img src='{{ imgpath }}{{ user.photo }}' style='max-width:100px;max-height:100px'>
-  {% endif %}
 
-  <hr>
   <p>IP-address: {{ user.ip }}</p>
 
-  <form action="" method="post" enctype="multipart/form-data">
-    <fieldset>
-      <input type="email" name="email" placeholder="E-mail"  value="{{ user.email }}">
-      <input type="text" name="name" placeholder="Имя" value="{{ user.name }}">
-      <input type="text" name="age" placeholder="Возраст" value="{{ user.age }}">
-      <textarea name="about" id="" cols="30" rows="10" placeholder="О себе" >{{ user.about }}</textarea>
-      <label for="input_photo">Загрузите свою фотографию</label>
-      <input type="file" name="photo" id="input_photo" accept="image/*">
-      <hr>
-      <button type="submit">Отправить</button>
-    </fieldset>
-  </form>
+  <hr>
+
+  <div class="row">
+
+
+    <div class="col">
+      <form action="" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <input type="email" name="email" placeholder="E-mail"  value="{{ user.email }}">
+          <input type="text" name="name" placeholder="Имя" value="{{ user.name }}">
+          <input type="text" name="age" placeholder="Возраст" value="{{ user.age }}">
+          <textarea name="about" id="" cols="30" rows="10" placeholder="О себе" >{{ user.about }}</textarea>
+          <label for="input_photo">Загрузите свою фотографию</label>
+          <input type="file" name="photo" id="input_photo" accept="image/*">
+          <hr>
+          <input type="submit" name="upload" class="button" value="Обновить">
+        </fieldset>
+      </form>
+
+      {% if user.photo %}
+        <br>
+        <hr>
+        <form action="" method="post" enctype="multipart/form-data">
+          <fieldset>
+            <label for="input_photo">Загрузите вотермарк</label>
+            <input type="file" name="watermark" id="input_watermark" accept="image/*">
+            <hr>
+            <input type="submit" name="add_watermark" class="button" value="Нанести вотермарк">
+          </fieldset>
+        </form>
+
+      {% endif %}
+
+    </div>
+
+    <div class="col">
+      {% if user.photo %}
+        <img src='{{ imgpath }}{{ user.photo }}' style='max-width:480px;max-height:480px'>
+      {% endif %}
+    </div>
+
+  </div>
+
+
+
 {% endblock %}

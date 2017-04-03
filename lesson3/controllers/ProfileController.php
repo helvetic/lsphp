@@ -9,7 +9,7 @@ class ProfileController extends Controller
     parent::__construct();
     
     $this->handle();
-  
+    
     $this->data->user = App::user();
     $this->data->h1 = $this->data->h1 . ' ' . App::user()->login;
     $this->data->menu = Menu::authList();
