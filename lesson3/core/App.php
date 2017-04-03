@@ -3,12 +3,15 @@
 
 class App
 {
+  
   public static $user;
+  
   protected static $check;
   protected static $uri;
   protected static $controller;
   protected static $auth;
   protected static $id;
+  
   
   
   public static function auth()
@@ -28,20 +31,28 @@ class App
     }
   }
   
+  
+  
   public static function check($uid = -1)
   {
     return Session::check($uid, session_id());
   }
+  
+  
   
   public static function user()
   {
     return self::$user;
   }
   
+  
+  
   public static function id()
   {
     return self::$id;
   }
+  
+  
   
   public static function uri($set = false)
   {
@@ -51,6 +62,8 @@ class App
     return self::$uri;
   }
   
+  
+  
   public static function controller($set = false)
   {
     if ($set !== false) {
@@ -58,6 +71,8 @@ class App
     }
     return self::$controller;
   }
+  
+  
   
   public static function isAuth()
   {
