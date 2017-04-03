@@ -2,6 +2,8 @@
 
 use Intervention\Image\ImageManagerStatic as Image;
 
+
+
 if ($_POST) {
   
   global $config;
@@ -9,8 +11,6 @@ if ($_POST) {
   $user = App::user()->toArray();
   
   if ($_POST['upload']) {
-    
-    
     $data = [];
     
     $input = clearArray($_POST, [
@@ -19,6 +19,15 @@ if ($_POST) {
         'age' => 'int',
         'about' => 'string',
     ]);
+  
+    $is_valid = GUMP::is_valid($_POST, [
+        'name' => 'required|min_len,5',
+        'email' => 'required|valid_email',
+        'age' => 'required|integer|min_numeric,10|max_numeric,100',
+        'about' => 'required|min_len,50',
+    ]);
+  
+
     
     
     // Не придумал ничего умнее
@@ -35,6 +44,10 @@ if ($_POST) {
     
     
     try {
+  
+      if($is_valid !== true) {
+        throw new Exception($is_valid[0]);
+      }
     
       if($_POST['age']) {
         if (is_null($input['age'])) {
