@@ -44,6 +44,7 @@ class Controller
     } else {
       $handlerName = $this->name;
     }
+    $this->data->post = $_POST;
     require_once "core/handlers/{$handlerName}.php";
   }
   

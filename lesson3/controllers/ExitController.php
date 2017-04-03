@@ -11,7 +11,7 @@ class ExitController extends Controller
     session_unset();
     Session::deleteCurrent(App::id());
     
-    Route::redirectTo('');
+    Route::redirectTo('index');
   }
   
 }

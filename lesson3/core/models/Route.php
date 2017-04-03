@@ -42,8 +42,13 @@ class Route
   protected function selectController()
   {
     $page = Page::where('uri', App::controller())->first();
+    $uris = ['exit', '', '403'];
     
-    if ($page->exists) {
+    if ($page->protected && !App::isAuth()) {
+      $this->pageForbidden();
+    }
+    
+    if ($page->exists || in_array(App::uri(), $uris)) {
       if(!$this->fileExist()) {
         $this->controllerName = 'DefaultController';
         App::controller('default');
@@ -72,6 +77,16 @@ class Route
     header('Location:'. $host .'404');
   }
   
+  
+  public static function pageForbidden()
+  {
+    $host = 'http://'.$_SERVER['HTTP_HOST'] . '/';
+    
+    header('HTTP/1.1 403 Forbidden');
+    header('Status: 403 Forbidden');
+    echo "403 Forbidden";
+    exit;
+  }
   
   
   public static function redirectTo ($uri) {

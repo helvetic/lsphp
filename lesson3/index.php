@@ -7,6 +7,7 @@ require_once 'core/File.php';
 require_once 'core/Config.php';
 require_once 'core/Parse.php';
 require_once 'core/Menu.php';
+require_once 'core/MailTo.php';
 require_once 'core/ReCaptcha.php';
 
 $config = (new Config(__DIR__))->get();

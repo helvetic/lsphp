@@ -7,6 +7,9 @@ class App
   protected static $check;
   protected static $uri;
   protected static $controller;
+  protected static $auth;
+  protected static $id;
+  
   
   public static function auth()
   {
@@ -15,9 +18,12 @@ class App
     }
     
     if ($_COOKIE['id']) {
-      $uid = $_COOKIE['id'];
-      if (self::check($uid)) {
-        self::$user = User::where('id', $uid)->first();
+      self::$id = $_COOKIE['id'];
+      if (self::check(self::$id)) {
+        self::$user = User::where('id', self::$id)->first();
+        self::$auth = true;
+      } else {
+        self::$auth = false;
       }
     }
   }
@@ -34,7 +40,7 @@ class App
   
   public static function id()
   {
-    return $_COOKIE['id'];
+    return self::$id;
   }
   
   public static function uri($set = false)
@@ -53,12 +59,9 @@ class App
     return self::$controller;
   }
   
-  public static function exit()
+  public static function isAuth()
   {
-    session_unset();
-    Session::deleteCurrent($app['id']);
-    unset($_COOKIE['id']);
-  
-    Route::redirectTo('');
+    return self::$auth;
   }
+
 }

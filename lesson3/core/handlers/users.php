@@ -18,7 +18,7 @@ if ($_POST) {
       }
       User::where('id', $input['id'])->delete();
   
-      if ($input['id'] == $app['id']) {
+      if ($input['id'] == App::id()) {
         Route::redirectTo('exit');
       } else {
         Route::redirectTo('users');
