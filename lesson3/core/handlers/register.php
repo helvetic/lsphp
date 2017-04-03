@@ -36,7 +36,9 @@ if ($_POST) {
     } else {
       throw new Exception('No password');
     }
-
+  
+    $data['ip'] = App::getIP();
+    
     $id = User::add($data);
     Session::add($id, session_id());
     setcookie("id", $id );
@@ -44,7 +46,7 @@ if ($_POST) {
     new MailTo([
         'email' => $data['email'],
         'subject' => 'Registration success',
-        'body' => "<h1>You have successfully signed up as {$input['login']}</h1>
+        'body' => "<h1>You have successfully signed up as {$data['login']} from {$data['ip']}</h1>
                    <p>Your password: {$input['password']}</p>"
     ]);
   

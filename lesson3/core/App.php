@@ -78,5 +78,11 @@ class App
   {
     return self::$auth;
   }
+  
+  
+  public static function getIP()
+  {
+    return $_SERVER['REMOTE_ADDR'];
+  }
 
 }
