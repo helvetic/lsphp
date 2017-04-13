@@ -1,0 +1,12 @@
+{
+    "name": "maggi/lesson7",
+    "require": {
+        "illuminate/database": "^5.4"
+    },
+    "authors": [
+        {
+            "name": "helvetic",
+            "email": "my@maggit.ru"
+        }
+    ]
+}
