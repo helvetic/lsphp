@@ -3,9 +3,18 @@
 
 class Parse
 {
-  public static function uri($url, $folder = '/')
+  public static function uri($url)
   {
-    $uri = str_replace($folder, '', $url);
-    return $uri;
+    $array = explode('/', $url);
+    
+    $newArray = [];
+  
+    foreach ($array as $item) {
+      if () {
+      
+      }
+    }
+    
+    return $newArray;
   }
 }

@@ -3,8 +3,16 @@
 
 class Route
 {
-  function __construct()
+  public $url;
+  function __construct($url)
   {
-    echo 'Im router';
+    $this->url = Parse::uri($url);
+  }
+  
+  
+  public function start()
+  {
+    echo 'Im router<br>';
+    print_r($this->url);
   }
 }

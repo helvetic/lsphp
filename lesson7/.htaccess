@@ -1,3 +1,4 @@
 RewriteEngine On
 RewriteBase /lesson7/
-RewriteRule ^.*$ index.php [END]
+RewriteRule ^(api)($|/) - [L]
+RewriteRule ^((?s).*)$ index.php?_url=/$1 [QSA,L]
