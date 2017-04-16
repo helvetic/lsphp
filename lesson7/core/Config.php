@@ -26,6 +26,5 @@ class Config
     public function some()
     {
         $some = 'smth';
-        $so
     }
 }
